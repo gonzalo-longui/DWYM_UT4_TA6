@@ -1,3 +1,15 @@
+.taskInput {
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #eeeeee;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+  
 .taskCard {
     border-radius: 8px;
     border: 1px solid #cccccc;
@@ -8,4 +20,10 @@
     background-color: #eeeeee;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
+}
+  
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
