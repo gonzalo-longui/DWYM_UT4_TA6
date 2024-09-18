@@ -1,9 +1,36 @@
 import './App.css';
-import { Card } from './components/card.jsx';
+import { Card } from './components/card/card.jsx';
+import './components/card/card.module.css';
+import { useState } from 'react';
 
 function App() {
+  const [tareas, setTareas] = useState([]);
+  const [nuevaTarea, setNuevaTarea] = useState('');
+
+  const addTarea = (e) => {
+    e.preventDefault();
+    if (nuevaTarea.trim()) {
+      setTareas([...tareas, nuevaTarea]);
+      setNuevaTarea('');
+    }
+  };
+
   return (
-    <Card />
+    <>
+      <div>
+        <form onSubmit={addTarea}>
+          <input type="text" className="taskInput" id="taskInput" placeholder="Ingresa una tarea..." value={nuevaTarea} onChange={(e) => setNuevaTarea(e.target.value)}></input>
+          <button type="submit">Agregar</button>
+        </form>
+      </div>
+      <div>
+        <ul>
+          {tareas.map((tarea, index) => (
+            <Card key={index} tarea={tarea} />
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
 
